@@ -10,9 +10,9 @@
 <h4 align="center">A template for the project readme file. </h4> <change to repo short description>
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#project-description">Project Description</a> •
+  <a href="#key-features">Key Features</a> |
+  <a href="#how-to-use">How To Use</a> |
+  <a href="#project-description">Project Description</a> |
   <a href="#data-locations">Data Locations</a>
 </p>
 
@@ -32,6 +32,9 @@ You should also include a short description of what each part of your code does.
   - Curabitur efficitur, nunc non ultricies gravida, felis purus posuere eros, sed faucibus sapien est nec quam. Nulla at nisl nisl.
  
 ## How To Use
+
+For the refactored scripts, data locations, and runnable commands, see
+[Script paths after the refactor](docs/script_paths.md).
 
 To clone and run this application, you'll need <a href="https://git-scm.com" target="_blank">Git</a>
 From your command line:
