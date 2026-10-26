@@ -1,0 +1,33 @@
+# Research datasets — private
+/data/
+
+# Database credentials and local configuration
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# macOS and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Generated figures and tables
+/analysis/figures/
+/analysis/tables/
+
+# Local logs and temporary files
+*.log
+*.tmp
