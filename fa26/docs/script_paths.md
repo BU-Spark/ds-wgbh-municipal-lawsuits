@@ -19,6 +19,7 @@ any directory. The examples below run from `fa26`.
 | `scripts/masscourts/extract_municipal_entity_case_context.py` | Explicit `--input`, `DATABASE_URL` or `MASSCOURTS_DATABASE_URL` | `validation/case_context/municipal_entity_case_context.csv` by default, or `--output` |
 | `scripts/masscourts/build_litigation_panel.py` | Extracted cases in `LITIGATION_REBUILD_DIR` (defaults to `data/processed/masscourts/`), municipal panel in `data/analysis/` | Litigation panel in `LITIGATION_REBUILD_DIR` |
 | `scripts/merge_litigation_dls.py` | Municipal panel in `data/analysis/`, litigation panel in `LITIGATION_REBUILD_DIR` (defaults to `data/processed/masscourts/`) | Merged panel in `LITIGATION_REBUILD_DIR` |
+| `scripts/plot_litigation_map.py` | Merged panel in `data/processed/` | `data/processed/masscourts/municipal_litigation_map.html` |
 | `scripts/validation/validate_municipal_entities.py` | Original registry in `versions/v33/` | `validation/initial/` |
 | `scripts/validation/validate_high_impact_entities.py` | Original registry in `versions/v33/`, extracted case parties | `validation/initial/` |
 | `scripts/validation/apply_municipal_validation.py` | Review CSV or existing overrides in `validation/case_context/`, original registry in `versions/v33/` | Overrides in `validation/case_context/`; annotations in `validation/initial/` |
