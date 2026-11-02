@@ -9,7 +9,7 @@
 
 This dataset contains municipal financial and population information for all 351 cities and towns in Massachusetts. The data was collected to support an investigation of lawsuits involving Massachusetts municipalities, particularly whether lawsuit frequency and outcomes vary with municipal size and financial resources.
 
-The dataset combines Schedule A General Fund revenue and expenditure reports with annual municipal population estimates. The resulting panel covers 2000–2025, although the two sources have different year ranges.
+The dataset combines Schedule A General Fund revenue and expenditure reports with annual municipal population estimates. The resulting panel covers 2000-2025, although the two sources have different year ranges.
 
 All raw and processed data is stored in the GitHub repository under the `data/` directory.
 
@@ -19,12 +19,12 @@ The data was obtained from the Massachusetts Division of Local Services (DLS):
 
 1. **Schedule A General Fund:** https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=ScheduleA.GenFund_MAIN
    - Municipal revenue and expenditure data
-   - Fiscal years 2002–2025
+   - Fiscal years 2002-2025
    - 351 municipalities
 
 2. **Municipal Population:** https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=Socioeconomic.Population.population_main
    - Annual municipal population estimates
-   - Years 2000–2024
+   - Years 2000-2024
    - 351 municipalities
 
 Both datasets are publicly available through the Massachusetts Department of Revenue.
@@ -33,7 +33,7 @@ Both datasets are publicly available through the Massachusetts Department of Rev
 
 We developed `download_dls.py` to automate downloading the Schedule A reports. The script uses Playwright to interact with the DLS reporting interface and export separate Excel files for revenues and expenditures for each fiscal year.
 
-This produced 48 Excel files covering fiscal years 2002–2025. The population data was downloaded separately as a single Excel workbook containing annual population figures for all municipalities.
+This produced 48 Excel files covering fiscal years 2002-2025. The population data was downloaded separately as a single Excel workbook containing annual population figures for all municipalities.
 
 The original files are stored in `data/raw/dls/` within the repository.
 
@@ -59,16 +59,16 @@ All datasets are included in the repository under the `data/` directory.
 
 ```text
 data/
-├── raw/
-│   └── dls/
-│       ├── schedule_a/
-│       │   └── *.xlsx
-│       └── population.xlsx
-└── processed/
-    ├── municipal_finances_2002_2025.csv
-    ├── municipal_population_2000_2024.csv
-    ├── municipal_panel_2000_2025.csv
-    └── dls_data_quality.csv
++-- raw/
+|   +-- dls/
+|       +-- schedule_a/
+|       |   +-- *.xlsx
+|       +-- population.xlsx
++-- processed/
+    +-- municipal_finances_2002_2025.csv
+    +-- municipal_population_2000_2024.csv
+    +-- municipal_panel_2000_2025.csv
+    +-- dls_data_quality.csv
 ```
 
 ## Processed Files
@@ -88,7 +88,7 @@ The panel includes municipality name, county, population, financial categories, 
 
 ## Data Quality and Limitations
 
-The datasets have different coverage periods. Population data begins in 2000 and ends in 2024, while Schedule A financial data begins in 2002 and ends in 2025. As a result, financial data is unavailable for 2000–2001 and population data is unavailable for 2025. Both sources overlap during 2002–2024.
+The datasets have different coverage periods. Population data begins in 2000 and ends in 2024, while Schedule A financial data begins in 2002 and ends in 2025. As a result, financial data is unavailable for 2000-2001 and population data is unavailable for 2025. Both sources overlap during 2002-2024.
 
 There are also several issues in the financial reports:
 
@@ -104,8 +104,8 @@ No questionable financial values were automatically corrected or removed.
 
 The data collection and processing scripts are included in the repository:
 
-- `download_dls.py` — downloads Schedule A Excel reports.
-- `combine_dls.py` — combines financial and population data and generates the data-quality report.
+- `download_dls.py` - downloads Schedule A Excel reports.
+- `combine_dls.py` - combines financial and population data and generates the data-quality report.
 
 The original datasets are already included under `data/raw/dls/`. To regenerate the processed datasets, run the following command from the repository root:
 

@@ -232,35 +232,42 @@ labels = {
 maps = [
     {
         "column": "defendant_cases",
-        "title": "Municipal Defendant Litigation: Total Cases (FY2006–2024)",
+        "title": "Municipal Defendant Litigation: Total Cases (FY2006-2024)",
         "filename": "municipal_defendant_counts.html",
         "legend": "Total defendant<br>cases",
         "cap": True,
     },
     {
         "column": "defendant_rate",
-        "title": "Municipal Defendant Litigation: Population-Adjusted Rates (FY2006–2024)",
+        "title": "Municipal Defendant Litigation: Population-Adjusted Rates (FY2006-2024)",
         "filename": "municipal_defendant_rates.html",
         "legend": "Cases per 10k<br>residents / year",
         "cap": True,
     },
     {
         "column": "defendant_rate_eb",
-        "title": "Municipal Defendant Litigation: Empirical Bayes Rates (FY2006–2024)",
+        "title": "Municipal Defendant Litigation: Empirical Bayes Rates (FY2006-2024)",
         "filename": "municipal_defendant_rates_eb.html",
         "legend": "Smoothed cases per 10k<br>residents / year",
         "cap": True,
     },
 ]
 
+shared_rate_max = np.nanpercentile(
+    gdf["defendant_rate"], 95
+)
+
 for config in maps:
     column = config["column"]
 
-    color_max = (
-        np.nanpercentile(gdf[column], 95)
-        if config["cap"]
-        else gdf[column].max()
-    )
+    if column in ["defendant_rate", "defendant_rate_eb"]:
+        color_max = shared_rate_max
+    else:
+        color_max = (
+            np.nanpercentile(gdf[column], 95)
+            if config["cap"]
+            else gdf[column].max()
+        )
 
     print(f"\n{column}: 95th percentile = {color_max:.3f}")
 
@@ -272,7 +279,13 @@ for config in maps:
         color=column,
         hover_name="municipality",
         hover_data=hover_data,
-        color_continuous_scale="Blues",
+        color_continuous_scale=[
+        [0.00, "#F3E5F5"],  # Very light lavender
+        [0.20, "#D1A3E0"],  # Light purple
+        [0.40, "#AD40D9"],  # Medium purple
+        [0.70, "#7926A8"],  # Deep purple
+        [1.00, "#3B0F52"],  # Dark purple
+    ],
         range_color=(0, color_max),
         labels=labels,
         title=config["title"],
@@ -287,8 +300,8 @@ for config in maps:
     )
 
     fig.update_traces(
-        marker_line_color="rgba(50, 65, 85, 0.5)",
-        marker_line_width=0.45,
+        marker_line_color="rgba(60, 40, 80, 0.65)",
+        marker_line_width=0.6,
     )
 
     fig.update_layout(
