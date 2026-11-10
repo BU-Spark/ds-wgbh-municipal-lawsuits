@@ -65,6 +65,11 @@ for col in [
     "cases_housing",
     "cases_tort_defendant",
     "cases_admin_defendant",
+    "outcome_dismissal",
+    "outcome_judgment",
+    "outcome_municipality_favored",
+    "outcome_municipality_adverse",
+    "outcome_unknown",
 ]:
     merged[col + "_per_10k"] = (
         merged[col]
